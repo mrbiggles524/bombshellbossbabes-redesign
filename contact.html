@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Bombshell Boss Babes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="version.js?v=1.0.0"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1.0.0" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's Connect</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <h2>Get in Touch</h2>
+        <p id="contactBlurb">Interested in membership, events, or merch? We'd love to hear from you.</p>
+        <p><strong>Address</strong><br />276 5th Ave Suite 704-1446<br />New York, NY 10001</p>
+        <p><strong>Email</strong><br /><a href="mailto:info@IAOTP.com">info@IAOTP.com</a></p>
+        <p><strong>Phone</strong><br /><a href="tel:12126344427">+1 (212) 634-4427</a></p>
+      </div>
+      <form class="form" id="contactForm">
+        <label for="name">Name</label>
+        <input id="name" name="name" required />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject">
+          <option value="membership">Membership Inquiry</option>
+          <option value="packages">Package / Payment</option>
+          <option value="events">Events & Waitlist</option>
+          <option value="merch">Merchandise</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <input type="hidden" id="interest" name="interest" />
+        <button class="btn btn--primary" type="submit">Send Message</button>
+        <p id="formStatus" style="font-size:0.85rem;margin-top:0.5rem"></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/config.js?v=1.0.0"></script>
+  <script src="js/layout.js?v=1.0.0"></script>
+  <script src="js/main.js?v=1.0.0"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const interest = params.get("interest") || params.get("package");
+      if (interest) {
+        document.getElementById("interest").value = interest;
+        document.getElementById("contactBlurb").textContent =
+          "You're inquiring about: " + interest.replace(/-/g, " ") + ". Fill out the form and we'll be in touch.";
+        if (interest.includes("yacht")) document.getElementById("subject").value = "events";
+        if (["diamond","gold","crystal"].includes(interest)) document.getElementById("subject").value = "packages";
+      }
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subj = document.getElementById("subject").value;
+        const msg = document.getElementById("message").value;
+        const body = encodeURIComponent("From: " + name + " (" + email + ")\n\n" + msg);
+        window.location.href = "mailto:info@IAOTP.com?subject=" + encodeURIComponent("BBB: " + subj) + "&body=" + body;
+        document.getElementById("formStatus").textContent = "Opening your email app…";
+      });
+    })();
+  </script>
+</body>
+</html>
