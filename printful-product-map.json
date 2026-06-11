@@ -1,0 +1,26 @@
+{
+  "_instructions": "After creating products in Printful, paste each Printful variant ID. Snipcart maps by data-item-id (slug).",
+  "products": [
+    { "slug": "bombshell-boss-babe-trucker-cap", "printfulVariantId": "", "printfulProductName": "Trucker Cap" },
+    { "slug": "bombshell-boss-babe-apron", "printfulVariantId": "", "printfulProductName": "Apron" },
+    { "slug": "bombshell-boss-babes-mug", "printfulVariantId": "", "printfulProductName": "Mug 11oz" },
+    { "slug": "bombshell-boss-babes-note-pad", "printfulVariantId": "", "printfulProductName": "Spiral Notebook" },
+    { "slug": "bombshell-boss-babe-bandeau-top", "printfulVariantId": "", "printfulProductName": "Bandeau / Sports top" },
+    { "slug": "bombshell-boss-babe-white-tee", "printfulVariantId": "", "printfulProductName": "Women's tee" },
+    { "slug": "bombshell-boss-babes-cheer-shorts", "printfulVariantId": "", "printfulProductName": "Cheer shorts" },
+    { "slug": "bombshell-boss-babes-crop-top", "printfulVariantId": "", "printfulProductName": "Crop top" },
+    { "slug": "bombshell-boss-babe-black-tank", "printfulVariantId": "", "printfulProductName": "Tank black" },
+    { "slug": "bombshell-boss-babe-white-tank", "printfulVariantId": "", "printfulProductName": "Tank white" },
+    { "slug": "tank-top-white", "printfulVariantId": "", "printfulProductName": "Tank white alt" },
+    { "slug": "bombshell-boss-babe-stadium-blanket", "printfulVariantId": "", "printfulProductName": "Stadium blanket" },
+    { "slug": "bombshell-boss-babe-jersey-tee", "printfulVariantId": "", "printfulProductName": "Jersey tee" },
+    { "slug": "bombshell-boss-babes-sweatpants", "printfulVariantId": "", "printfulProductName": "Sweatpants" },
+    { "slug": "bombshell-boss-babe-pillow", "printfulVariantId": "", "printfulProductName": "Throw pillow" },
+    { "slug": "bombshell-boss-babe-bikini-bottom", "printfulVariantId": "", "printfulProductName": "Bikini bottom" },
+    { "slug": "bombshell-boss-babes-zip-up", "printfulVariantId": "", "printfulProductName": "Zip hoodie" },
+    { "slug": "bombshell-boss-babes-shorts", "printfulVariantId": "", "printfulProductName": "Shorts" },
+    { "slug": "bombshell-boss-babe-fleece-pullover", "printfulVariantId": "", "printfulProductName": "Fleece pullover" },
+    { "slug": "bombshell-boss-babe-sports-bra", "printfulVariantId": "", "printfulProductName": "Sports bra" },
+    { "slug": "bombshell-boss-babe-hoodie", "printfulVariantId": "", "printfulProductName": "Hoodie" }
+  ]
+}

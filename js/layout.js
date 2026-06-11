@@ -65,6 +65,7 @@
         <a href="charity.html">Charity</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
+        <a href="setup.html">Go Live Setup</a>
       </div>
       <div>
         <h4>Contact</h4>

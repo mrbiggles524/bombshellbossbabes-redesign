@@ -2,7 +2,11 @@
 
 Replica of [bombshellbossbabes.com](https://bombshellbossbabes.com) with full shop, membership packages, and checkout-ready integrations.
 
-**Version:** v1.0.0
+**Version:** v1.0.1
+
+**Live site:** https://mrbiggles524.github.io/bombshellbossbabes-redesign/
+
+**Go-live checklist:** https://mrbiggles524.github.io/bombshellbossbabes-redesign/setup.html
 
 ## Pages
 

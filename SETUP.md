@@ -40,7 +40,7 @@ Until links are set, "Apply Now" routes to the contact form.
 
 ## 3. Contact form
 
-Update the Formspree endpoint in `contact.html` (`action="..."`) to the client's form ID, or replace with your preferred form backend.
+The preview uses `mailto:info@IAOTP.com`. For a web form that captures leads without opening email, add [Formspree](https://formspree.io), Netlify Forms, or similar to `contact.html`.
 
 ## 4. Go live on custom domain
 

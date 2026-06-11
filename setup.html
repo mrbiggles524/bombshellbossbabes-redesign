@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Live Setup — Bombshell Boss Babes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="version.js?v=1.0.1"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1.0.1" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Go Live</p>
+      <h1>Dropship Checkout Setup</h1>
+      <p>Complete these steps so customers pay on your site and Printful ships to their door.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container setup-steps">
+      <article class="setup-step done" id="step-site">
+        <h3>✅ Step 1 — Website is live</h3>
+        <p>Your preview site is deployed. Share the link below with the client.</p>
+        <p><strong>Live URL:</strong> <a id="liveUrl" href="#">loading…</a></p>
+      </article>
+
+      <article class="setup-step" id="snipcart">
+        <h3>Step 2 — Snipcart (cart & payments)</h3>
+        <ol>
+          <li>Create a free account at <a href="https://app.snipcart.com/register" target="_blank" rel="noopener">snipcart.com</a></li>
+          <li>Copy your <strong>Test API key</strong> from Dashboard → Account → API keys</li>
+          <li>Copy <code>js/config.local.example.js</code> → <code>js/config.local.js</code></li>
+          <li>Paste the key into <code>snipcartApiKey</code> and push to GitHub (or edit on GitHub)</li>
+          <li>In Snipcart → <strong>Domains</strong>, add your live site URL</li>
+        </ol>
+        <a class="btn btn--primary" href="https://app.snipcart.com/register" target="_blank" rel="noopener">Open Snipcart</a>
+      </article>
+
+      <article class="setup-step" id="printful">
+        <h3>Step 3 — Printful (print & ship)</h3>
+        <ol>
+          <li>Create account at <a href="https://www.printful.com/auth/register" target="_blank" rel="noopener">printful.com</a></li>
+          <li>Create each product with Bombshell artwork (see <code>js/products.js</code> for names & prices)</li>
+          <li>In Snipcart → <strong>Apps → Printful</strong> → connect accounts</li>
+          <li>Map each product slug to Printful variant (see <code>printful-product-map.json</code>)</li>
+        </ol>
+        <a class="btn btn--primary" href="https://www.printful.com/auth/register" target="_blank" rel="noopener">Open Printful</a>
+      </article>
+
+      <article class="setup-step">
+        <h3>Step 4 — Test order</h3>
+        <p>Use Snipcart <strong>test mode</strong>, add a hoodie to cart, checkout with test card, confirm order appears in Printful with customer shipping address.</p>
+        <a class="btn btn--gold" href="shop.html">Go to Shop</a>
+      </article>
+
+      <article class="setup-step">
+        <h3>Step 5 — Go live</h3>
+        <p>Switch Snipcart to <strong>Live API key</strong> in <code>config.local.js</code>. Connect Stripe in Snipcart for payouts. Optional: point <code>bombshellbossbabes.com</code> DNS to GitHub Pages.</p>
+      </article>
+
+      <article class="setup-step">
+        <h3>Membership packages (Stripe)</h3>
+        <p>Diamond / Gold / Crystal use Stripe Payment Links — add URLs in <code>config.local.js</code> under <code>stripeMembershipLinks</code>.</p>
+        <a class="btn btn--outline" href="https://dashboard.stripe.com/register" target="_blank" rel="noopener">Open Stripe</a>
+      </article>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/config.js?v=1.0.1"></script>
+  <script src="js/config.local.js?v=1.0.1"></script>
+  <script src="js/layout.js?v=1.0.1"></script>
+  <script src="js/main.js?v=1.0.1"></script>
+  <script>
+    const live = window.location.origin + window.location.pathname.replace(/setup\.html.*$/, "index.html");
+    const a = document.getElementById("liveUrl");
+    a.href = live;
+    a.textContent = live.replace(/index\.html$/, "");
+    if (window.BBB_CONFIG?.snipcartApiKey) {
+      document.getElementById("snipcart").classList.add("done");
+      document.getElementById("snipcart").querySelector("h3").textContent = "✅ Step 2 — Snipcart connected";
+    }
+  </script>
+</body>
+</html>

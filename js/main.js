@@ -1,15 +1,26 @@
 (function () {
-  const C = window.BBB_CONFIG || {};
+  const base = window.BBB_CONFIG || {};
+  const local = window.BBB_CONFIG_LOCAL || {};
+  const C = Object.assign({}, base, {
+    snipcartApiKey: local.snipcartApiKey || base.snipcartApiKey,
+    stripeMembershipLinks: Object.assign({}, base.stripeMembershipLinks, local.stripeMembershipLinks),
+  });
+  window.BBB_CONFIG = C;
 
   function initSnipcart() {
     const key = (C.snipcartApiKey || "").trim();
     if (!key) {
+      showCheckoutBanner();
       document.querySelectorAll(".snipcart-add-item").forEach((btn) => {
         btn.addEventListener("click", (e) => {
-          if (!key) {
-            e.preventDefault();
-            showToast("Checkout activates once Snipcart API key is added — see SETUP.md");
-          }
+          e.preventDefault();
+          showToast("Add Snipcart API key in js/config.local.js — see setup.html");
+        });
+      });
+      document.querySelectorAll(".snipcart-checkout").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.location.href = "setup.html#snipcart";
         });
       });
       return;
@@ -52,9 +63,23 @@
   }
   window.BBB_productUrl = productPageUrl;
 
+  function showCheckoutBanner() {
+    if (document.getElementById("bbbCheckoutBanner")) return;
+    const b = document.createElement("div");
+    b.id = "bbbCheckoutBanner";
+    b.className = "checkout-banner";
+    b.innerHTML =
+      'Shop preview mode — <a href="setup.html">finish checkout setup</a> to accept orders & dropship.';
+    document.body.prepend(b);
+  }
+
+  function absoluteProductUrl(slug) {
+    const dir = window.location.href.replace(/[^/]*$/, "");
+    return dir + productPageUrl(slug);
+  }
+
   function snipcartBtn(product, label) {
-    const base = window.location.origin + window.location.pathname.replace(/[^/]+$/, "");
-    const url = base + productPageUrl(product.slug);
+    const url = absoluteProductUrl(product.slug);
     return `<button class="btn btn--primary snipcart-add-item"
       data-item-id="${product.slug}"
       data-item-name="${product.name.replace(/"/g, "&quot;")}"

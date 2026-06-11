@@ -459,6 +459,30 @@ h1, h2, h3, h4 {
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 
+.checkout-banner {
+  background: var(--gold);
+  color: var(--black);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 200;
+}
+.checkout-banner a { color: var(--black); text-decoration: underline; }
+
+.setup-steps { max-width: 720px; margin: 0 auto; }
+.setup-step {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--gold);
+}
+.setup-step h3 { margin: 0 0 0.5rem; font-family: var(--font-sans); font-weight: 600; }
+.setup-step.done { border-left-color: #5cd85a; opacity: 0.85; }
+.setup-step a.btn { margin-top: 0.75rem; }
+
 .split-banner {
   display: grid;
   grid-template-columns: 1fr 1fr;
