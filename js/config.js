@@ -4,6 +4,7 @@
  * Stripe: membership package payment links
  */
 window.BBB_CONFIG = {
+  siteUrl: "https://mrbiggles524.github.io/bombshellbossbabes-redesign",
   siteName: "Bombshell Boss Babes",
   contactEmail: "info@IAOTP.com",
   contactPhone: "+1 (212) 634-4427",

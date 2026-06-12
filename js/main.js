@@ -92,8 +92,8 @@
   }
 
   function absoluteProductUrl(slug) {
-    const dir = window.location.href.replace(/[^/]*$/, "");
-    return dir + productPageUrl(slug);
+    const base = (C.siteUrl || window.location.origin + window.location.pathname.replace(/[^/]*$/, "").replace(/\/$/, "")).replace(/\/$/, "");
+    return base + "/products/" + encodeURIComponent(slug) + ".html";
   }
 
   function snipcartBtn(product, label) {

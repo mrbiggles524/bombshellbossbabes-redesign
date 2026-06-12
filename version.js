@@ -1,1 +1,1 @@
-window.BBB_APP_VERSION = "1.0.2";
+window.BBB_APP_VERSION = "1.0.3";
