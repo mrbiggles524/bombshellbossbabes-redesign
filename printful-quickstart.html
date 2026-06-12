@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Printful Quickstart — Bombshell Boss Babes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prata&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="version.js?v=1.0.4"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1.0.4" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Printful</p>
+      <h1>Streamlined Print &amp; Ship Setup</h1>
+      <p>Your site already sells via Snipcart. Printful only needs your designs — skip Shopify/Etsy in their wizard.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container setup-steps">
+      <article class="setup-step">
+        <h3>What to ignore on the Printful home screen</h3>
+        <p><strong>Step 2 “Connect your store”</strong> (Shopify, Etsy, WooCommerce) is <em>not</em> for this site. Your storefront is already live on GitHub Pages + Snipcart.</p>
+        <p>Instead: <strong>Stores → Add store → Manual orders / API</strong> (or just design products — billing is what matters for fulfillment).</p>
+      </article>
+
+      <article class="setup-step done">
+        <h3>✅ Already done — Snipcart checkout</h3>
+        <p>Customers pay on your site. Test checkout works. Orders appear in Snipcart Dashboard → Orders.</p>
+      </article>
+
+      <article class="setup-step" id="phase-pilot">
+        <h3>Phase 1 — Pilot product (~15 min)</h3>
+        <p>Start with <strong>one</strong> bestseller. Prove the full loop before doing all 21 items.</p>
+        <ol>
+          <li>Printful → <strong>Product catalog</strong> → search <strong>hoodie</strong> (e.g. Gildan 18500 or similar)</li>
+          <li><strong>Design Lab</strong> → upload artwork from the link below</li>
+          <li>Mockups → pick front image → format <strong>PNG</strong></li>
+          <li>Name it <code>Bombshell Boss Babe Hoodie</code> → Save to <strong>My products</strong></li>
+          <li>Copy the <strong>Variant ID</strong> from the product (you’ll need it for auto-fulfillment later)</li>
+        </ol>
+        <div class="pilot-card">
+          <img src="https://www.bombshellbossbabes.com/wp-content/uploads/2025/11/Bombshell-Boss-Babe-Hoodie.png" alt="Hoodie artwork" width="120" />
+          <div>
+            <strong>Pilot: Bombshell Boss Babe Hoodie</strong>
+            <p>Site price: $86.49 · Slug: <code>bombshell-boss-babe-hoodie</code></p>
+            <a class="btn btn--outline btn--sm" href="https://www.bombshellbossbabes.com/wp-content/uploads/2025/11/Bombshell-Boss-Babe-Hoodie.png" target="_blank" rel="noopener">Open artwork</a>
+            <a class="btn btn--primary btn--sm" href="https://www.printful.com/dashboard/product-catalog" target="_blank" rel="noopener">Open Printful catalog</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="setup-step" id="phase-billing">
+        <h3>Phase 2 — Billing (~5 min)</h3>
+        <p>Printful charges <em>you</em> per order (print cost + ship). Customer already paid via Snipcart.</p>
+        <ol>
+          <li>Printful → <strong>Billing → Billing methods</strong> → add card</li>
+          <li>Settings → Stores → set selling region (US / worldwide)</li>
+        </ol>
+        <a class="btn btn--primary" href="https://www.printful.com/dashboard/billing/billing-methods" target="_blank" rel="noopener">Add billing method</a>
+      </article>
+
+      <article class="setup-step" id="phase-fulfill">
+        <h3>Phase 3 — Fulfill orders</h3>
+        <p><strong>Fastest (no code):</strong> When a Snipcart order comes in → Printful → <strong>Orders → Create order</strong> → pick your product → paste customer ship address from Snipcart.</p>
+        <p><strong>Automated (later):</strong> Snipcart webhook → small server → Printful API. Static GitHub Pages can’t run that in-browser; we can add a Cloudflare Worker or Vercel function when you’re ready.</p>
+        <a class="btn btn--outline" href="https://app.snipcart.com/dashboard/orders" target="_blank" rel="noopener">Snipcart orders</a>
+        <a class="btn btn--outline" href="https://www.printful.com/dashboard/default/orders" target="_blank" rel="noopener">Printful orders</a>
+      </article>
+
+      <article class="setup-step">
+        <h3>Phase 4 — Roll out more products</h3>
+        <p>After the hoodie pilot works, duplicate the flow. Use <strong>Product templates</strong> in Printful to speed up similar items (tanks, tees, etc.).</p>
+        <p class="muted">Check off items as you create them — progress saves in this browser.</p>
+        <div class="printful-checklist-wrap">
+          <table class="printful-checklist" id="productChecklist">
+            <thead>
+              <tr>
+                <th>Done</th>
+                <th>Product</th>
+                <th>Printful type</th>
+                <th>Artwork</th>
+                <th>Variant ID</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <button class="btn btn--gold" type="button" id="exportMap">Copy variant map JSON</button>
+      </article>
+
+      <p class="setup-back"><a href="setup.html">← Back to full setup guide</a></p>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="js/config.js?v=1.0.4"></script>
+  <script src="js/products.js?v=1.0.4"></script>
+  <script src="js/layout.js?v=1.0.4"></script>
+  <script src="js/main.js?v=1.0.4"></script>
+  <script>
+    const PRINTFUL_HINTS = {
+      "bombshell-boss-babe-hoodie": "Hoodie",
+      "bombshell-boss-babe-fleece-pullover": "Fleece pullover",
+      "bombshell-boss-babes-zip-up": "Zip hoodie",
+      "bombshell-boss-babe-white-tee": "Women's tee / flowy tank",
+      "bombshell-boss-babe-jersey-tee": "Jersey tee",
+      "bombshell-boss-babes-crop-top": "Crop top",
+      "bombshell-boss-babe-black-tank": "Tank top",
+      "bombshell-boss-babe-white-tank": "Tank top",
+      "tank-top-white": "Tank top",
+      "bombshell-boss-babe-sports-bra": "Sports bra",
+      "bombshell-boss-babe-bandeau-top": "Bandeau / sports top",
+      "bombshell-boss-babes-cheer-shorts": "Shorts",
+      "bombshell-boss-babes-shorts": "Shorts",
+      "bombshell-boss-babes-sweatpants": "Sweatpants",
+      "bombshell-boss-babe-bikini-bottom": "Bikini bottom",
+      "bombshell-boss-babe-trucker-cap": "Trucker cap",
+      "bombshell-boss-babe-apron": "Apron",
+      "bombshell-boss-babes-mug": "Mug 11oz",
+      "bombshell-boss-babes-note-pad": "Spiral notebook",
+      "bombshell-boss-babe-pillow": "Throw pillow",
+      "bombshell-boss-babe-stadium-blanket": "Stadium blanket",
+    };
+    const STORAGE_KEY = "bbb_printful_checklist_v1";
+
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); }
+      catch { return {}; }
+    }
+    function saveState(state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    const tbody = document.querySelector("#productChecklist tbody");
+    const state = loadState();
+    const products = (window.BBB_PRODUCTS || []).slice().sort((a, b) => {
+      if (a.slug === "bombshell-boss-babe-hoodie") return -1;
+      if (b.slug === "bombshell-boss-babe-hoodie") return 1;
+      return a.name.localeCompare(b.name);
+    });
+
+    products.forEach((p) => {
+      const row = document.createElement("tr");
+      if (p.slug === "bombshell-boss-babe-hoodie") row.classList.add("pilot-row");
+      const checked = !!state[p.slug]?.done;
+      const variantId = state[p.slug]?.variantId || "";
+      row.innerHTML = `
+        <td><input type="checkbox" data-slug="${p.slug}" class="pf-done" ${checked ? "checked" : ""} aria-label="Done: ${p.name}" /></td>
+        <td><strong>${p.name}</strong><br><code>${p.slug}</code></td>
+        <td>${PRINTFUL_HINTS[p.slug] || "—"}</td>
+        <td><a href="${p.image}" target="_blank" rel="noopener">Artwork</a></td>
+        <td><input type="text" class="pf-variant" data-slug="${p.slug}" placeholder="Paste ID" value="${variantId}" /></td>
+      `;
+      tbody.appendChild(row);
+    });
+
+    tbody.addEventListener("change", (e) => {
+      const slug = e.target.dataset.slug;
+      if (!slug) return;
+      state[slug] = state[slug] || {};
+      if (e.target.classList.contains("pf-done")) state[slug].done = e.target.checked;
+      if (e.target.classList.contains("pf-variant")) state[slug].variantId = e.target.value.trim();
+      saveState(state);
+    });
+
+    document.getElementById("exportMap").addEventListener("click", () => {
+      const map = {
+        _instructions: "Paste Printful variant IDs. Slug must match data-item-id on the site.",
+        products: products.map((p) => ({
+          slug: p.slug,
+          printfulVariantId: (state[p.slug]?.variantId || "").trim(),
+          printfulProductName: PRINTFUL_HINTS[p.slug] || p.name,
+        })),
+      };
+      navigator.clipboard.writeText(JSON.stringify(map, null, 2)).then(() => {
+        alert("Variant map copied! Paste into printful-product-map.json in the repo.");
+      });
+    });
+  </script>
+</body>
+</html>

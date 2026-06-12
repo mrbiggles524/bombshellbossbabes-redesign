@@ -7,10 +7,11 @@ This preview site replicates [bombshellbossbabes.com](https://bombshellbossbabes
 **Snipcart** handles cart, checkout, and taxes on this static site. **Printful** prints and ships orders to buyers.
 
 1. Create accounts at [snipcart.com](https://snipcart.com) and [printful.com](https://printful.com).
-2. In Printful: create products matching the BBB catalog (use same images from `js/products.js`).
-3. In Snipcart Dashboard → **Apps** → connect **Printful**.
-4. Map each Snipcart product ID (the `slug` in `products.js`) to the Printful variant.
-5. Copy your **Snipcart public API key** into `js/config.js`:
+2. **Skip** Printful’s Shopify/Etsy connect wizard — use **Manual orders / API** store type (or just design products).
+3. Pilot with the **hoodie** first; artwork URLs are in `js/products.js`. Full checklist: `printful-quickstart.html`.
+4. Add Printful **billing** so orders can ship.
+5. **Fulfillment:** copy Snipcart order → Printful **Create order** (manual). Auto-fulfillment needs a webhook server (Snipcart → Printful API).
+6. Copy your **Snipcart public API key** into `js/config.js`:
 
 ```js
 snipcartApiKey: "YOUR_SNIPCART_PUBLIC_API_KEY",

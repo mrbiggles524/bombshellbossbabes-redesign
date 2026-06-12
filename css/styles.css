@@ -482,6 +482,44 @@ h1, h2, h3, h4 {
 .setup-step h3 { margin: 0 0 0.5rem; font-family: var(--font-sans); font-weight: 600; }
 .setup-step.done { border-left-color: #5cd85a; opacity: 0.85; }
 .setup-step a.btn { margin-top: 0.75rem; }
+.setup-step a.btn + a.btn { margin-left: 0.5rem; }
+.setup-back { margin-top: 2rem; }
+.pilot-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.pilot-card img { border-radius: 8px; }
+.btn--sm { padding: 0.4rem 0.85rem; font-size: 0.85rem; }
+.printful-checklist-wrap { overflow-x: auto; margin: 1rem 0; }
+.printful-checklist {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.printful-checklist th,
+.printful-checklist td {
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  text-align: left;
+  vertical-align: top;
+}
+.printful-checklist .pilot-row { background: rgba(212, 175, 55, 0.12); }
+.printful-checklist .pf-variant {
+  width: 100%;
+  min-width: 7rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+.muted { color: var(--muted, #666); font-size: 0.9rem; }
 
 .split-banner {
   display: grid;

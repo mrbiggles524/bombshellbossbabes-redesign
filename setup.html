@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Go Live Setup — Bombshell Boss Babes</title>
   <link href="https://fonts.googleapis.com/css2?family=Prata&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="version.js?v=1.0.3"></script>
-  <link rel="stylesheet" href="css/styles.css?v=1.0.3" />
+  <script src="version.js?v=1.0.4"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1.0.4" />
 </head>
 <body>
   <div id="site-header"></div>
@@ -40,19 +40,22 @@
       </article>
 
       <article class="setup-step" id="printful">
-        <h3>Step 3 — Printful (print & ship)</h3>
+        <h3>Step 3 — Printful (print &amp; ship)</h3>
+        <p><strong>Skip</strong> Printful’s “Connect Shopify/Etsy” step — your store is already Snipcart + GitHub Pages.</p>
         <ol>
-          <li>Create account at <a href="https://www.printful.com/auth/register" target="_blank" rel="noopener">printful.com</a></li>
-          <li>Create each product with Bombshell artwork (see <code>js/products.js</code> for names & prices)</li>
-          <li>In Snipcart → <strong>Apps → Printful</strong> → connect accounts</li>
-          <li>Map each product slug to Printful variant (see <code>printful-product-map.json</code>)</li>
+          <li>Account at <a href="https://www.printful.com/auth/register" target="_blank" rel="noopener">printful.com</a> (you’re here ✓)</li>
+          <li><strong>Pilot first:</strong> create the <strong>Hoodie</strong> in Product catalog → upload artwork → save to My products</li>
+          <li>Add <strong>billing method</strong> (Printful charges you per fulfilled order)</li>
+          <li>When orders arrive: Snipcart Dashboard → copy address → Printful → <strong>Create order</strong> (manual, no code)</li>
+          <li>Later: automate with Snipcart webhooks + Printful API (optional)</li>
         </ol>
-        <a class="btn btn--primary" href="https://www.printful.com/auth/register" target="_blank" rel="noopener">Open Printful</a>
+        <a class="btn btn--primary" href="printful-quickstart.html">Printful quickstart (checklist)</a>
+        <a class="btn btn--outline" href="https://www.printful.com/dashboard/product-catalog" target="_blank" rel="noopener">Product catalog</a>
       </article>
 
       <article class="setup-step">
-        <h3>Step 4 — Test order</h3>
-        <p>Use Snipcart <strong>test mode</strong>, add a hoodie to cart, checkout with test card, confirm order appears in Printful with customer shipping address.</p>
+        <h3>Step 4 — Test the full loop</h3>
+        <p>Snipcart <strong>test mode</strong> → add hoodie → checkout (4242…). Then manually create the matching order in Printful with the shipping address from Snipcart.</p>
         <a class="btn btn--gold" href="shop.html">Go to Shop</a>
       </article>
 
@@ -71,10 +74,10 @@
 
   <div id="site-footer"></div>
 
-  <script src="js/config.js?v=1.0.3"></script>
-  <script src="js/config.local.js?v=1.0.3"></script>
-  <script src="js/layout.js?v=1.0.3"></script>
-  <script src="js/main.js?v=1.0.3"></script>
+  <script src="js/config.js?v=1.0.4"></script>
+  <script src="js/config.local.js?v=1.0.4"></script>
+  <script src="js/layout.js?v=1.0.4"></script>
+  <script src="js/main.js?v=1.0.4"></script>
   <script>
     const live = window.location.origin + window.location.pathname.replace(/setup\.html.*$/, "index.html");
     const a = document.getElementById("liveUrl");
