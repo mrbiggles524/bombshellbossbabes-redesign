@@ -9,8 +9,8 @@ window.BBB_CONFIG = {
   contactPhone: "+1 (212) 634-4427",
   contactAddress: "276 5th Ave Suite 704-1446, New York, NY 10001",
 
-  /** Paste Snipcart public API key to enable live merch checkout */
-  snipcartApiKey: "",
+  /** Snipcart public TEST key — safe on website; switch to Live key when ready */
+  snipcartApiKey: "ODZmYTc1NWUtMjYwNC00YWZmLTg5MDUtMjNmMTAxMjMxZDg3NjM5MTY3OTQ3OTU4MDA0ODI0",
 
   /** Stripe Payment Links for membership (create in Stripe Dashboard) */
   stripeMembershipLinks: {

@@ -14,7 +14,7 @@
       document.querySelectorAll(".snipcart-add-item").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
-          showToast("Add Snipcart API key in js/config.local.js — see setup.html");
+          showToast("Add Snipcart API key in js/config.js — see setup.html");
         });
       });
       document.querySelectorAll(".snipcart-checkout").forEach((btn) => {
@@ -25,6 +25,8 @@
       });
       return;
     }
+    hideCheckoutBanner();
+    showTestCheckoutBanner();
     if (document.getElementById("snipcart")) return;
     const div = document.createElement("div");
     div.hidden = true;
@@ -63,6 +65,11 @@
   }
   window.BBB_productUrl = productPageUrl;
 
+  function hideCheckoutBanner() {
+    const b = document.getElementById("bbbCheckoutBanner");
+    if (b) b.remove();
+  }
+
   function showCheckoutBanner() {
     if (document.getElementById("bbbCheckoutBanner")) return;
     const b = document.createElement("div");
@@ -70,6 +77,17 @@
     b.className = "checkout-banner";
     b.innerHTML =
       'Shop preview mode — <a href="setup.html">finish checkout setup</a> to accept orders & dropship.';
+    document.body.prepend(b);
+  }
+
+  function showTestCheckoutBanner() {
+    if (document.getElementById("bbbTestBanner")) return;
+    const b = document.createElement("div");
+    b.id = "bbbTestBanner";
+    b.className = "checkout-banner";
+    b.style.background = "#5cd85a";
+    b.innerHTML =
+      'TEST checkout on — use card <strong>4242 4242 4242 4242</strong> · any future date · any CVC';
     document.body.prepend(b);
   }
 
